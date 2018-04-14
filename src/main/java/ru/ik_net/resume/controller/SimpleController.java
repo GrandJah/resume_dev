@@ -33,6 +33,9 @@ public class SimpleController {
         return "simple";
     }
 
+    /** error request.
+     * @return view error
+     */
     @RequestMapping(value = "/error", method = RequestMethod.GET)
     public String getError() {
         return "error";
