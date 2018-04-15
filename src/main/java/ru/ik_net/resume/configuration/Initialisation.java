@@ -2,6 +2,7 @@ package ru.ik_net.resume.configuration;
 
 import org.sitemesh.builder.SiteMeshFilterBuilder;
 import org.sitemesh.config.ConfigurableSiteMeshFilter;
+import org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.WebApplicationContext;
@@ -51,6 +52,7 @@ public class Initialisation implements WebApplicationInitializer {
     private void registeredFilters(ServletContext container, WebApplicationContext context) {
         registeredFilter(container, context.getBean(ErrorFilter.class));
         registeredFilter(container, new CharacterEncodingFilter("UTF-8", true));
+        registeredFilter(container, new OpenEntityManagerInViewFilter());
         registeredFilter(container, new SiteMesh());
     }
 
